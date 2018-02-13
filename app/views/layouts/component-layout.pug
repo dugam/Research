@@ -1,0 +1,67 @@
+include ../common/mixins/mixins
+block vars
+  - title = 'Component layout'
+  - bodyClass = 'preview-component'
+  - rootPath = ''
+doctype html
+html(class="no-js", lang="en")
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    title=title
+    meta(name="description", content="")
+    meta(name="keywords", content="")
+    meta(name="robots", content="index, follow")
+    meta(name="author", content="")
+    meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, shrink-to-fit=no")
+    link(rel="icon", href="./favicon.ico", type="image/x-icon")
+
+    if isMin
+      link(rel="stylesheet", href= rootPath + "assets/css/libs.min.css")
+      link(rel="stylesheet", href= rootPath + "assets/css/app.min.css")
+    else
+      link(rel="stylesheet", href= rootPath + "assets/css/libs.css")
+      link(rel="stylesheet", href= rootPath + "assets/css/app.css")
+
+    style.
+      .bs-glyphicons-list {
+        list-style: none;
+        padding: 0;
+      }
+      .bs-glyphicons li {
+        float: left;
+        width: 25%;
+        height: 115px;
+        padding: 10px;
+        font-size: 10px;
+        line-height: 1.4;
+        text-align: center;
+        background-color: #f9f9f9;
+        border: 1px solid #fff;
+      }
+      .bs-glyphicons {
+        overflow: hidden;
+      }
+      .bs-glyphicons .icon,
+      .bs-glyphicons .glyphicon {
+        margin-top: 5px;
+        margin-bottom: 10px;
+        font-size: 24px;
+      }
+      .bs-glyphicons .glyphicon-class {
+        display: block;
+        text-align: center;
+        word-wrap: break-word;
+      }
+      @media (min-width: 768px){
+        .bs-glyphicons li {
+            width: 12.5%;
+            font-size: 12px;
+        }
+      }
+
+  body(class=bodyClass)
+    block components
+    block layer
+    include ../common/script
+    noscript JavaScript is off. Please enable to view full site.

@@ -1,0 +1,34 @@
+$font-path: '../fonts/';
+
+@font-face {
+  font-family: "<%= fontName %>";
+  font-weight: normal;
+  font-style: normal;
+  src: url($font-path + "<%= fontName %>.woff") format("woff"),
+    url($font-path + "<%= fontName %>.ttf") format("truetype");
+}
+
+$icons: ( <%=glyphs.map(function(glyph) {
+  return glyph.name + ': \'' + '\\' + glyph.unicode[0].charCodeAt(0).toString(16).toLowerCase() + '\''
+}).join(', ') %> );
+
+<%=glyphs.map(function(glyph) {
+  return '$' + className + '-' +glyph.name + ': \"' + '\\' + glyph.unicode[0].charCodeAt(0).toString(16).toLowerCase() + '\"'
+}).join(';\n') %>;
+
+.<%=className %> {
+  display: inline-block;
+  font-family: "<%= fontName %>";
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  text-transform: none;
+  @each $name, $icon in $icons {
+    &-#{$name}:before {
+      content: $icon;
+    }
+  }
+}

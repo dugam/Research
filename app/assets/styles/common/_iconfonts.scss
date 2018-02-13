@@ -1,0 +1,30 @@
+$font-path: '../fonts/';
+
+@font-face {
+  font-family: "FontIconSVG";
+  font-weight: normal;
+  font-style: normal;
+  src: url($font-path + "FontIconSVG.woff") format("woff"),
+    url($font-path + "FontIconSVG.ttf") format("truetype");
+}
+
+$icons: ( facebook: '\ea01' );
+
+$icon-facebook: "\ea01";
+
+.icon {
+  display: inline-block;
+  font-family: "FontIconSVG";
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  text-transform: none;
+  @each $name, $icon in $icons {
+    &-#{$name}:before {
+      content: $icon;
+    }
+  }
+}

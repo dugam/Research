@@ -1,0 +1,61 @@
+extends layouts/component-layout
+
+block vars
+  - title = "Icons"
+  - bodyClass = "preview-component"
+  - rootPath = "./"
+
+block components
+  .container
+    .form-validate
+      h1.title-form Form Validation
+      form(name="Form-Validate" action="" data-validation-form)
+        .form-group
+          label(for="username").label-text Username:
+          input#username(type="text" placeholder="Username" data-requirement).form-control
+        .form-group
+          label(for="password").label-text Password:
+          input#password(type="password" placeholder="Password" data-requirement).form-control
+        .form-group
+          label(for="re-password").label-text Confirm Password:
+          input#re-password(type="password" placeholder="Confirm Password" data-requirement data-confirm-password).form-control
+          span.show-message Lorem ipsum dolor sit amet
+        .form-group
+          label(for="email").label-text Email:
+          input#email(type="email" placeholder="Email" data-requirement).form-control
+        .two-col
+          .col-left
+            .form-group
+              label(for="birthday").label-text Birthday:
+              input#birthday(type="date" placeholder="Birthday" data-requirement).form-control
+          .col-right
+            .form-group
+              label(for="age").label-text Age:
+              input#age(type="number" placeholder="Age" data-requirement).form-control
+        .form-group.checkbox
+          h2.title-check Checkboxes
+          label(for="check-one") One
+            input#check-one(type="checkbox" checked="checked")
+            span.checkmark
+          label(for="check-two") Two
+            input#check-two(type="checkbox")
+            span.checkmark
+          label(for="check-three") Three
+            input#check-three(type="checkbox")
+            span.checkmark
+          label(for="check-four") Four
+            input#check-four(type="checkbox")
+            span.checkmark
+        .form-group.radio-btn
+          h2.title-check Radio Buttons
+          label(for="radio-male") Male
+            input#radio-male(type="radio" name="gender" checked="checked")
+            span.checkmark.radio-checkmark
+          label(for="radio-female") Female
+            input#radio-female(type="radio" name="gender")
+            span.checkmark.radio-checkmark
+          label(for="radio-other") Other
+            input#radio-other(type="radio" name="gender")
+            span.checkmark.radio-checkmark
+        .form-group
+          button(type="button").btn-submit Submit

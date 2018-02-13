@@ -1,0 +1,25 @@
+extends layouts/component-layout
+
+block vars
+  - title = 'Component global'
+  - bodyClass = 'preview-component'
+  - rootPath = '../'
+  
+block components
+
+  h1 Component global
+
+  ol
+    li: +link('Component 1', '#anchor-1')
+    li: +link('Component 2', '#anchor-2')
+    li: +link('Component 3', '#anchor-3')
+
+  div(id="anchor-1")
+  h2 Component 1  
+  include components/comp-1
+  div(id="anchor-2")
+  h2 Component 2  
+  include components/comp-1
+  div(id="anchor-3")
+  h2 Component 3  
+  include components/comp-1

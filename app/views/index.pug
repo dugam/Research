@@ -1,0 +1,43 @@
+extends layouts/template-layout
+
+block vars
+  - title = "Sitemap"
+  - bodyClass = "sitemap-page"
+  - rootPath = './'
+
+block container
+  mixin rowTableSitemap(pages, levelClass)
+    tr&attributes(attributes)
+      each page, i in pages
+        if (i === 0)
+          td(class=levelClass)
+            a(href!= page.href, title!= page.name)!= page.name
+        else
+          td!= page
+
+  h1.heading-tpl Project Name
+
+  if !isMin
+  h2.heading-tpl List Components
+  .table-responsive
+    table.table.table-bordered.table-tpl
+      tr.text-uppercase
+        th List components
+        th Status
+      +rowTableSitemap([{'name': 'Icons', 'href': 'icons.html'}, '0%'])
+      +rowTableSitemap([{'name': 'Component global', 'href': 'comp-global.html'}, '0%'])
+      +rowTableSitemap([{'name': 'Component phase 1', 'href': 'comp-phase-1.html'}, '0%'])
+      +rowTableSitemap([{'name': 'Component phase 2', 'href': 'comp-phase-2.html'}, '0%'])
+      +rowTableSitemap([{'name': 'Form', 'href': 'form-validate.html'}, '0%'])
+  h2.heading-tpl List pages
+  .table-responsive
+    table.table.table-bordered.table-tpl
+      tr.text-uppercase
+        th List pages
+        th Status
+
+      +rowTableSitemap([{'name': 'Home', 'href': 'pages/home.html'}, '0%'], 'level-1')
+      +rowTableSitemap([{'name': 'Product', 'href': 'pages/product/product.html'}, '0%'], 'level-1')
+      +rowTableSitemap([{'name': 'Product detail', 'href': 'pages/product/product-detail.html'}, '0%'], 'level-2')
+      +rowTableSitemap([{'name': 'Product detail', 'href': 'pages/product/product-detail.html'}, '0%'], 'level-3')
+      +rowTableSitemap([{'name': 'Product detail', 'href': 'pages/product/product-detail.html'}, '100%'], 'level-4').done

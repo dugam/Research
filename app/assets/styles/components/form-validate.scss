@@ -1,0 +1,122 @@
+.form-validate {
+  max-width: 50rem;
+  margin: 3rem auto;
+  font-size: 1.5rem;
+  font-family: $font-family-verdana;
+  .title-form {
+    font-size: 2.4rem;
+    font-weight: bold;
+  }
+  .form-group {
+    clear: both;
+    margin-bottom: 2rem;
+    position: relative;
+    .show-message {
+      display: none;
+      color: $red;
+      position: absolute;
+      top: 0.5rem;
+      right: 0;
+      &.show-mess {
+        display: block;
+      }
+    }
+    .title-check {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+    .label-text {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+    .form-control {
+      width: 100%;
+      padding: 1rem;
+      border: 0.1rem solid $grey;
+      &.error-infor {
+        background-color: $red-1;
+        border: 0.1rem solid $red;
+      }
+      &.pass-infor {
+        background-color: $green-1;
+        border: 0.1rem solid $green;
+      }
+    }
+    .btn-submit {
+      padding: 1rem 2rem;
+    }
+    &.checkbox,
+    &.radio-btn {
+      label {
+          cursor: pointer;
+          position: relative;
+          display: block;
+          margin-bottom: 1.5rem;
+          padding-left: 3rem;
+          font-size: 1.8rem;
+        input {
+          position: absolute;
+          opacity: 0;
+          &:checked ~ .checkmark {
+            background-color: #2196F3;
+            &:after {
+              display: block;
+            }
+          }
+        }
+        .checkmark {
+          width: 2.5rem;
+          height: 2.5rem;
+          position: absolute;
+          top: 0;
+          left: 0;
+          background-color: $grey-2;
+          &.radio-checkmark {
+            border-radius: 50%;
+            &:after {
+              border: 0;
+              background-color: $white;
+              border-radius: 50%;
+              left: 0.9rem;
+              top: 0.9rem;
+              width: 0.8rem;
+              height: 0.8rem;
+            }
+          }
+          &:after {
+            display: none;
+            content: "";
+            position: absolute;
+            left: 1rem;
+            top: 0.4rem;
+            width: 0.8rem;
+            height: 1.5rem;
+            border-top: 0;
+            border-left: 0;
+            border-right: 0.3rem solid $white;
+            border-bottom: 0.3rem solid $white;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+          }
+        }
+        &:hover .checkmark {
+          background-color: $grey-1;
+        }
+      }
+    }
+  }
+  .two-col {
+    .col-left {
+      width: 50%;
+      float: left;
+      padding-right: 1rem;
+    }
+    .col-right {
+      width: 50%;
+      float: left;
+      padding-left: 1rem;
+    }
+  }
+}

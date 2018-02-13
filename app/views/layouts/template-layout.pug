@@ -1,0 +1,101 @@
+include ../common/mixins/mixins
+block vars
+  - title = ''
+  - bodyClass = ''
+  - rootPath = ''
+doctype html
+html(class="no-js", lang="en")
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    title=title
+    meta(name="description", content="")
+    meta(name="keywords", content="")
+    meta(name="robots", content="index, follow")
+    meta(name="author", content="")
+    meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, shrink-to-fit=no")
+    link(rel="icon", href="./favicon.ico", type="image/x-icon")
+
+    if isMin
+      link(rel="stylesheet", href= rootPath + "assets/css/libs.min.css")
+      link(rel="stylesheet", href= rootPath + "assets/css/app.min.css")
+    else
+      link(rel="stylesheet", href= rootPath + "assets/css/libs.css")
+      link(rel="stylesheet", href= rootPath + "assets/css/app.css")
+    style.
+      body {padding: 0;}
+      .sitemap-page {margin: 20px;}
+      .sitemap-page h1.heading-tpl {text-align: center; text-transform: uppercase; color: #337ab7;}
+      .sitemap-page h2.heading-tpl {margin: 20px 0; padding-bottom: 20px; color: #3c763d; text-transform: uppercase; text-align: center; font-size: 2rem;}
+      .table-tpl {
+        border-spacing: 0;
+        border-collapse: collapse;
+        width: 100%;
+        text-align: left;
+      }
+
+      .table-tpl td, .table-tpl th  {
+        width: 50%;
+        padding: 8px;
+        line-height: 1.42857143;
+        vertical-align: top;
+      }
+      .table-tpl th  {color: #a94442; border-bottom-width: 2px;}
+
+      .table-tpl a:hover {
+        color: #69980f;
+      }
+
+      .level-1 a,
+      .level-2 a,
+      .level-3 a,
+      .level-4 a {
+        text-decoration: none;
+      }
+
+      .level-3 a {
+        padding-left: 2rem;
+      }
+
+      .level-4 a {
+        padding-left: 3rem;
+      }
+
+      .level-2 a::before,
+      .level-3 a::before,
+      .level-4 a::before {
+        content: "↳";
+        padding: 0 6px;
+        font-size: 2rem;
+        line-height: 0;
+      }
+      .done {
+        font-weight: bold;
+        color: #337ab7;
+      }
+
+      @media only screen and (max-width: 767px){
+        .table-tpl td:nth-child(1), .table-tpl th:nth-child(1) {
+          width: 100%;
+          border-right-width: 0;
+        }
+        .table-tpl td:nth-child(2), .table-tpl th:nth-child(2) {
+          display: none;
+        }
+        .sitemap-page h1.heading-tpl {
+          font-size: 25px;
+        }
+        .sitemap-page h2.heading-tpl {
+          font-size: 20px;
+        }
+      }
+
+  body(class=bodyClass)
+    .container
+      //- include ../common/header
+      block container
+      //- include ../common/footer
+    block layer
+    include ../common/script
+    noscript JavaScript is off. Please enable to view full site.
+

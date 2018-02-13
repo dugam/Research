@@ -1,0 +1,17 @@
+{
+  "name": "Project name",
+  "version": "1.0.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "vendor"
+  ],
+  "dependencies": {
+    "jquery": "3.2.1",
+    "modernizr": "~2.8.3",
+    "bootstrap-sass": "bootstrap-sass-official#^3.3.7"
+  },
+  "devDependencies": {
+    "detectizr": "^2.2.0"
+  }
+}
